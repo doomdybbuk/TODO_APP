@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html lang = "eng" data-theme="dark">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,14 +8,23 @@
         <script src="https://unpkg.com/hyperscript.org@0.9.11"></script>
         <script src="https://unpkg.com/htmx.org/dist/ext/json-enc.js"></script>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css"/>
+        <link rel="icon" href="icon.png/favicon.ico" type="image/x-icon">
     </head>
     <body>
         <header>
             <hgroup>
                 <h1>Bun Demo</h1>
-                <h2>Tutorial By Manan Jain</h2>
+                <h2>Tutorial By <a href="https://github.com/doomdybbuk">Manan Jain</a></h2>
             </hgroup>
         </header>
+        <main class ="container">
+            <form hx-post="/todos" hx-target="#todos" hx-ext="json-enc" _="on submit target.reset()">
+                <label for="todo">Bun Todo</label>
+                <input id = "todo" name="todo" type="text" aria-label = "Create Bun Todo" placeholder = "New Bun Todo">
+                <button type = "submit">Create Bun</button>
+            </form>
+            <section id="todos" hx-get="/todos" hx-trigger="load"></section>
+        </main>
         <script src="" async defer></script>
     </body>
 </html>
